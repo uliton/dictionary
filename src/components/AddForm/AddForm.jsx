@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import arrowImage from '../../images/arrow.png';
 import './AddForm.scss';
 
 export const AddForm = () => {
   const dispatch = useDispatch();
   const dictionary = useSelector(store => store.dictionary);
+  // const regExp = new RegExp("[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]+$");
 
   const [word, setWord] = useState('');
   const [translate, setTranslate] = useState('');
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();
 
   const handleAdderToDictionary = (word, translate) => {
     if (!word || !translate) {
@@ -18,7 +23,7 @@ export const AddForm = () => {
     const alreadyHaveSuchWord = dictionary.find(checkWord => checkWord.word === word);
 
     if (alreadyHaveSuchWord) {
-      setError('already have such word');
+      setError('Це слово вже є у вашому словнику');
       return
     }
 
@@ -28,18 +33,21 @@ export const AddForm = () => {
       translate,
     }
 
+
     dispatch({type: 'ADD_WORD', payload: newWord})
     setWord('')
     setTranslate('')
+    navigate('/dictionary')
   }
 
   return (
     <div className='form'>
-      <div className="form__word">
+      <div className="form__word--container">
         Слово
         <input
           type="text"
           placeholder="Введіть слово"
+          className="form__word--input"
           value={word}
           onChange={(e) => {
             if (error) {
@@ -52,11 +60,14 @@ export const AddForm = () => {
         />
       </div>
 
-      <div className="form__translate">
+      <img src={arrowImage} alt="arrow" className='form__arrow-image' />
+
+      <div className="form__word--container">
         Преклад
         <input
           type="text"
           placeholder="Введіть переклад"
+          className="form__word--input"
           value={translate}
           onChange={(e) => {
             setTranslate(e.target.value);
@@ -64,17 +75,19 @@ export const AddForm = () => {
           required
         />
       </div>
+
       <button
-        type='button'
+        className='form__button'
         onClick={() => {
           handleAdderToDictionary(word, translate);
         }}
+        hidden
       >
-        Add
+        додати
       </button>
 
       {error && (
-        <p style={{color: 'red'}}>
+        <p style={{color: 'red', margin: 'auto'}}>
           {error}
         </p>
       )}

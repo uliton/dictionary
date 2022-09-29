@@ -1,3 +1,4 @@
+import React from "react";
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import './Dictionary.scss';
@@ -58,9 +59,7 @@ export const Dictionary = () => {
         </tbody>
       </table>
 
-      <Link to='/add' className="dictionary__link">
-        <button className="dictionary__button">додати</button>
-      </Link>
+      <Link to='/add' className="dictionary__button">додати</Link>
     </div>
   )
 }

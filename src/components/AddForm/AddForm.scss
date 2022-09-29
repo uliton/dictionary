@@ -4,12 +4,63 @@
   padding: 8px 16px;
 
   &__word {
-    display: flex;
-    flex-direction: column;
+    &--container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      font-size: 16px;
+      width: 250px;
+      margin: auto;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: rgb(75, 75, 75);
+    }
+
+    &--input {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid grey;
+      font-size: 12px;
+
+      &:focus {
+        outline: 1px solid orange;
+        border: 1px solid orange;
+      }
+    }
   }
 
-  &__translate {
+  &__arrow-image {
+    width: 24px;
+    margin: auto;
+    margin-bottom: 12px;
+  }
+
+  &__link {
+    text-decoration: none;
+    width: 200px;
+    margin: auto;
+    border-radius: 10px;
+  }
+  
+  &__button {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin: auto;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: rgb(120, 120, 120);
+    margin-bottom: 16px;
+
+    &:hover {
+      cursor: pointer;
+      color: rgb(75, 75, 75);
+      background-color: #fff;
+      border: 1px solid grey;
+    }
   }
 }

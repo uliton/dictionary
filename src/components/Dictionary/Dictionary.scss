@@ -17,12 +17,11 @@
     margin-bottom: 24px;
   }
 
-  &__link {
-    text-decoration: none;
-  }
-
   &__button {
-    display: block;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 40px;
     border: none;
@@ -31,7 +30,7 @@
     text-transform: uppercase;
     color: #fff;
     background-color: rgb(120, 120, 120);
-
+  
     &:hover {
       color: rgb(75, 75, 75);
       background-color: #fff;
