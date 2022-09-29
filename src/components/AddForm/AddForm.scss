@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+
+  &__word {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__translate {
+    display: flex;
+    flex-direction: column;
+  }
+}
