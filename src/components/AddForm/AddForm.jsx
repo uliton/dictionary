@@ -34,64 +34,50 @@ export const AddForm = () => {
   }
 
   return (
-    <>
-      <div className='form'>
-        <div className="form__word">
-          Word
-          <input
-            type="text"
-            placeholder="Enter word"
-            value={word}
-            onChange={(e) => {
-              if (error) {
-                setError('');
-              }
+    <div className='form'>
+      <div className="form__word">
+        Слово
+        <input
+          type="text"
+          placeholder="Введіть слово"
+          value={word}
+          onChange={(e) => {
+            if (error) {
+              setError('');
+            }
 
-              setWord(e.target.value);
-            }}
-            required
-          />
-        </div>
-
-        <div className="form__translate">
-          Translate
-          <input
-            type="text"
-            placeholder="Enter word"
-            value={translate}
-            onChange={(e) => {
-              setTranslate(e.target.value);
-            }}
-            required
-          />
-        </div>
-        <button
-          type='button'
-          onClick={() => {
-            handleAdderToDictionary(word, translate);
+            setWord(e.target.value);
           }}
-        >
-          Add
-        </button>
+          required
+        />
       </div>
-      
-      {dictionary.map(currentWord => (
-        <div key={currentWord.id} style={{display: 'flex'}}>
-          <p>
-            {currentWord.word}
-          </p>
-          -
-          <p>
-            {currentWord.translate}
-          </p>
-        </div>
-      ))}
+
+      <div className="form__translate">
+        Преклад
+        <input
+          type="text"
+          placeholder="Введіть переклад"
+          value={translate}
+          onChange={(e) => {
+            setTranslate(e.target.value);
+          }}
+          required
+        />
+      </div>
+      <button
+        type='button'
+        onClick={() => {
+          handleAdderToDictionary(word, translate);
+        }}
+      >
+        Add
+      </button>
 
       {error && (
         <p style={{color: 'red'}}>
           {error}
         </p>
       )}
-    </>
+    </div>
   );
 };
