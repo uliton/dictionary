@@ -12,10 +12,12 @@ const defaultState = {
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_WORD':
+      return {...defaultState, dictionary: [...state.dictionary, action.payload]};
 
-      return {...defaultState, dictionary: [...state.dictionary, action.payload]}
+    case 'CREATE_STORE':
+      return action.payload;
+
     default:
-
       return state;
   }
 }
