@@ -42,6 +42,10 @@ export const AddForm = () => {
 
   return (
     <div className='form'>
+      <h3 className='form__title'>
+        Тут ви додаєте нові слова до словника
+      </h3>
+
       <div className="form__word--container">
         Слово
         <input

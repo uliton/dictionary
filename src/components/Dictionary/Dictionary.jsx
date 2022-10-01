@@ -8,9 +8,9 @@ export const Dictionary = () => {
 
   return (
     <div className="dictionary">
-      <p className="dictionary__title">
-        Це ваш словник:
-      </p>
+      <h3 className="dictionary__title">
+        Це ваш словник!
+      </h3>
 
       {dictionary.length === 0 && (
         <p className="dictionary__helper-text">
@@ -36,7 +36,7 @@ export const Dictionary = () => {
 
       {dictionary.length >= 10 && (
         <p className="dictionary__helper-text">
-          Супер! Ви можете ропочати перевірку у будь який момент.
+          Ви можете ропочати перевірку у будь який момент.
         </p>
       )}
 

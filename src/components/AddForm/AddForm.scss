@@ -3,6 +3,14 @@
   flex-direction: column;
   padding: 8px 16px;
 
+  &__title {
+    width: 220px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 18px;
+    
+  }
+
   &__word {
     &--container {
       display: flex;

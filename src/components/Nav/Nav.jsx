@@ -20,7 +20,7 @@ export const Nav = () => {
           </li>
 
           <li className='nav__item'>
-            <Link to='/test' className='nav__link'>Перевірити</Link>
+            <Link to='/check' className='nav__link'>Перевірити</Link>
           </li>
 
           <li className='nav__item'>

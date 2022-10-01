@@ -6,7 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
 
 const defaultState = {
-  dictionary: []
+  dictionary: [],
+  test: {},
+  resaults: [],
 } 
 
 const reducer = (state = defaultState, action) => {
@@ -16,6 +18,12 @@ const reducer = (state = defaultState, action) => {
 
     case 'CREATE_STORE':
       return action.payload;
+
+    case 'TEST':
+      return {...defaultState, test: [...state.tests, action.payload]};
+
+    case 'ADD_RESAULT':
+      return {...defaultState, test: [...state.resaults, action.payload]};
 
     default:
       return state;

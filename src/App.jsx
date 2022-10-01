@@ -1,22 +1,26 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import './App.scss';
 import { Nav } from './components/Nav/Nav';
 import { Main } from './components/Main/Main'
 import { Dictionary } from './components/Dictionary/Dictionary';
 import { AddForm } from './components/AddForm/AddForm';
 
-import { Stat } from './components/Stat'
+import { Check } from './components/Check/Check';
+import { Test } from './components/Test/Test'
+
 import { Result } from './components/Result'
+import { Stat } from './components/Stat'
 import { NotFound } from './components/NotFound'
 
-import { Test } from './components/Test/Test'
-import { useDispatch, useSelector } from 'react-redux';
+import './App.scss';
+import { test } from './test'
 
 export const App = () => {
   const dispatch = useDispatch();
   const state = useSelector(store => store);
   const dictionary = state.dictionary;
+  const resaults = state.resaults;
 
   useEffect(() => {
     // if local storage is empty, we create it
@@ -26,8 +30,13 @@ export const App = () => {
     
     const storageState = JSON.parse(localStorage.getItem('state'));
 
-    // if state is in local storage and dictionary updated
+    // if state is in local storage and dictionary was updated
     if (dictionary.length > storageState.dictionary.length) {
+      localStorage.setItem('state', JSON.stringify(state));
+    }
+    
+    // if state is in local storage and resaults was updated
+    if (resaults.length > storageState.resaults.length) {
       localStorage.setItem('state', JSON.stringify(state));
     }
 
@@ -39,6 +48,8 @@ export const App = () => {
     }
   });
 
+  console.log(state);
+
   return (
     <div>
       <Nav />
@@ -48,13 +59,28 @@ export const App = () => {
         <Route path='/Pre_Dictionary' element={<Main />} />
         <Route path='/dictionary' element={<Dictionary />} />
         <Route path='/add' element={<AddForm />} />
-
-        <Route path='/stat' element={<Stat />} />
-        <Route path='/result' element={<Result />} />
         <Route path='*' element={<NotFound />} />
 
+        <Route path='/check' element={<Check />} />
         <Route path='/test' element={<Test />} />
+
+        <Route path='/result' element={<Result />} />
+        <Route path='/stat' element={<Stat />} />
+
       </Routes>
+
+      <footer >
+        <p style={{color: 'red', marginTop: '50px', textAlign: 'center'}}>
+          footer
+          <button
+            onClick={() => {
+              localStorage.setItem('state', JSON.stringify(test));
+            }}
+          >
+            Quik add
+          </button>
+        </p>
+      </footer>
     </div>
   );
 };
