@@ -7,23 +7,23 @@ import { App } from './App';
 
 const defaultState = {
   dictionary: [],
-  test: {},
+  test: [],
   resaults: [],
 } 
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_WORD':
-      return {...defaultState, dictionary: [...state.dictionary, action.payload]};
+      return {...state, dictionary: [...state.dictionary, action.payload]};
 
     case 'CREATE_STORE':
       return action.payload;
 
     case 'TEST':
-      return {...defaultState, test: [...state.tests, action.payload]};
+      return {...state, test: [...state.test, ...action.payload]};
 
     case 'ADD_RESAULT':
-      return {...defaultState, test: [...state.resaults, action.payload]};
+      return {...state, resaults: [action.payload, ...state.resaults]};
 
     default:
       return state;

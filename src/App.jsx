@@ -9,18 +9,20 @@ import { AddForm } from './components/AddForm/AddForm';
 import { Check } from './components/Check/Check';
 import { Test } from './components/Test/Test'
 
-import { Result } from './components/Result'
-import { Stat } from './components/Stat'
-import { NotFound } from './components/NotFound'
+import { Resault } from './components/Resault/Resault'
+import { Statistics } from './components/Statistics/Statistics'
+import { NotFound } from './components/NotFound/NotFound'
 
 import './App.scss';
-import { test } from './test'
+import { testFromServer } from './test'
 
 export const App = () => {
   const dispatch = useDispatch();
   const state = useSelector(store => store);
   const dictionary = state.dictionary;
+  // const test = state.test;
   const resaults = state.resaults;
+
 
   useEffect(() => {
     // if local storage is empty, we create it
@@ -46,9 +48,14 @@ export const App = () => {
 
       dispatch({type: 'CREATE_STORE', payload: newStore});
     }
-  });
 
-  console.log(state);
+    // if state is in local storage and resaults is empty
+    if (storageState.resaults.length > resaults.length) {
+      const newStore = JSON.parse(localStorage.getItem('state'));
+
+      dispatch({type: 'CREATE_STORE', payload: newStore});
+    }
+  });
 
   return (
     <div>
@@ -64,8 +71,8 @@ export const App = () => {
         <Route path='/check' element={<Check />} />
         <Route path='/test' element={<Test />} />
 
-        <Route path='/result' element={<Result />} />
-        <Route path='/stat' element={<Stat />} />
+        <Route path='/resault' element={<Resault />} />
+        <Route path='/statistics' element={<Statistics />} />
 
       </Routes>
 
@@ -74,7 +81,7 @@ export const App = () => {
           footer
           <button
             onClick={() => {
-              localStorage.setItem('state', JSON.stringify(test));
+              dispatch({type: 'CREATE_STORE', payload: testFromServer});
             }}
           >
             Quik add

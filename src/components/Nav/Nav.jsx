@@ -24,7 +24,7 @@ export const Nav = () => {
           </li>
 
           <li className='nav__item'>
-            <Link to='/result' className='nav__link'>Результати</Link>
+            <Link to='/resault' className='nav__link'>Результати</Link>
           </li>
         </ul>
       </nav>
