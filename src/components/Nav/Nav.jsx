@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import headerImage from '../../images/header.jpeg'
 import './Nav.scss';
 
@@ -6,9 +6,10 @@ export const Nav = () => {
   return (
     <div className='nav'>
       <Link to='/'>
-        <img src={headerImage} alt="header" className="nav__image"/>
+        <img src={headerImage} alt='header' className='nav__image'/>
       </Link>
-      <nav className="nav__container">
+
+      <nav className='nav__container'>
         <ul className='nav__list'>
 
           <li className='nav__item'>

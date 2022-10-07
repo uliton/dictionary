@@ -1,6 +1,11 @@
 .nav {
   margin-bottom: 36px;
 
+  &__container {
+    max-width: 390px;
+    margin: auto;
+  }
+
   &__image {
     width: 100vw;
     margin-bottom: 24px;

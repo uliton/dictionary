@@ -5,24 +5,19 @@ import { Nav } from './components/Nav/Nav';
 import { Main } from './components/Main/Main'
 import { Dictionary } from './components/Dictionary/Dictionary';
 import { AddForm } from './components/AddForm/AddForm';
-
 import { Check } from './components/Check/Check';
 import { Test } from './components/Test/Test'
-
 import { Resault } from './components/Resault/Resault'
 import { Statistics } from './components/Statistics/Statistics'
 import { NotFound } from './components/NotFound/NotFound'
-
+import { Footer } from './components/Footer/Footer';
 import './App.scss';
-import { testFromServer } from './test'
 
 export const App = () => {
   const dispatch = useDispatch();
   const state = useSelector(store => store);
   const dictionary = state.dictionary;
-  // const test = state.test;
   const resaults = state.resaults;
-
 
   useEffect(() => {
     // if local storage is empty, we create it
@@ -66,28 +61,14 @@ export const App = () => {
         <Route path='/Pre_Dictionary' element={<Main />} />
         <Route path='/dictionary' element={<Dictionary />} />
         <Route path='/add' element={<AddForm />} />
-        <Route path='*' element={<NotFound />} />
-
         <Route path='/check' element={<Check />} />
         <Route path='/test' element={<Test />} />
-
         <Route path='/resault' element={<Resault />} />
         <Route path='/statistics' element={<Statistics />} />
-
+        <Route path='*' element={<NotFound />} />
       </Routes>
 
-      <footer >
-        <p style={{color: 'red', marginTop: '50px', textAlign: 'center'}}>
-          footer
-          <button
-            onClick={() => {
-              dispatch({type: 'CREATE_STORE', payload: testFromServer});
-            }}
-          >
-            Quik add
-          </button>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };

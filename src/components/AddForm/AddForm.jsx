@@ -6,25 +6,23 @@ import './AddForm.scss';
 
 export const AddForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const dictionary = useSelector(store => store.dictionary);
-  // const regExp = new RegExp("[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ]+$");
-
   const [word, setWord] = useState('');
   const [translate, setTranslate] = useState('');
   const [error, setError] = useState('');
 
-  const navigate = useNavigate();
-
   const handleAdderToDictionary = (word, translate) => {
     if (!word || !translate) {
-      return
+      return;
     }
 
     const alreadyHaveSuchWord = dictionary.find(checkWord => checkWord.word === word);
 
     if (alreadyHaveSuchWord) {
+
       setError('Це слово вже є у вашому словнику');
-      return
+      return;
     }
 
     const newWord = {
@@ -32,7 +30,6 @@ export const AddForm = () => {
       word,
       translate,
     }
-
 
     dispatch({type: 'ADD_WORD', payload: newWord})
     setWord('')
