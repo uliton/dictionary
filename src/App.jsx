@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { Nav } from './components/Nav/Nav';
-import { Main } from './components/Main/Main'
-import { Dictionary } from './components/Dictionary/Dictionary';
-import { AddForm } from './components/AddForm/AddForm';
-import { Check } from './components/Check/Check';
-import { Test } from './components/Test/Test'
-import { Resault } from './components/Resault/Resault'
-import { Statistics } from './components/Statistics/Statistics'
-import { NotFound } from './components/NotFound/NotFound'
-import { Footer } from './components/Footer/Footer';
+import { Nav } from './components/Nav';
+import { Main } from './components/Main'
+import { Dictionary } from './components/Dictionary';
+import { AddForm } from './components/AddForm';
+import { Check } from './components/Check';
+import { Test } from './components/Test'
+import { Resault } from './components/Resault'
+import { Statistics } from './components/Statistics'
+import { NotFound } from './components/NotFound'
+import { Footer } from './components/Footer';
 import './App.scss';
 
 export const App = () => {

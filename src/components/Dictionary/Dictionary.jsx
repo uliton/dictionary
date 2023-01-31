@@ -5,6 +5,7 @@ import './Dictionary.scss';
 
 export const Dictionary = () => {
   const dictionary = useSelector(store => store.dictionary);
+
   return (
     <div className='dictionary'>
       <h3 className='dictionary__title'>

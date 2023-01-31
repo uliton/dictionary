@@ -1,0 +1,32 @@
+.footer {
+  height: 52px;
+
+  &__container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    background-color: rgb(120, 120, 120);
+    padding: 8px;
+    border-top: 1px solid #fff;
+  }
+  
+  &__text {
+    text-align: center;
+    font-size: 8px;
+  }
+
+  &__button {
+    display: block;
+    margin: auto;
+    font-size: 7px;
+    border: none;
+    color: #fff;
+    background-color: rgb(120, 120, 120);
+
+    &:hover {
+      cursor: pointer;
+      color: rgb(215, 215, 215);
+    }
+  }
+}

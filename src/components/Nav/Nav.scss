@@ -7,7 +7,10 @@
   }
 
   &__image {
-    width: 100vw;
+    display: block;
+    width: 100%;
+    max-width: 512px;
+    margin: auto;
     margin-bottom: 24px;
   }
 

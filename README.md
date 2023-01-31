@@ -1,4 +1,4 @@
-[DEMO LINK](https://uliton.github.io/Pre_Dictionary/)
+[DEMO LINK](https://uliton.github.io/dictionary/)
 
 ## Ціль
 Реалізувати веб-додаток для вивчення слів (англомовних чи інших).

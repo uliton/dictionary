@@ -1,0 +1,38 @@
+.resault {
+  padding: 8px 16px;
+
+  &__text {
+    text-align: center;
+    padding: 20px;
+  }
+
+  &__content {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 200px;
+    height: 44px;
+    margin: auto;
+    border: none;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(120, 120, 120);
+    letter-spacing: 1px;
+
+    &:hover {
+      cursor: pointer;
+      color: rgb(75, 75, 75);
+      background-color: #fff;
+      border: 1px solid grey;
+    }
+  }
+}
